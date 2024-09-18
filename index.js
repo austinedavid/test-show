@@ -31,6 +31,14 @@ app.post("/", async (req, res) => {
     console.log(error);
   }
 });
+app.get("/", async (req, res) => {
+  try {
+    const allUsers = await userModel.find();
+    res.json(allUsers);
+  } catch (error) {
+    res.json({ message: "hello world" });
+  }
+});
 app.post("/post", async (req, res) => {
   const body = req.body;
   try {
